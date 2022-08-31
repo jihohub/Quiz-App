@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "outDir": "build/lib",
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["DOM", "ESNext"],
+    "sourceMap": true,
+    "importHelpers": true,
+    "declaration": true,
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "jsx": "react-jsx"
+    // "skipLibCheck": true
+  },
+	"include": [
+		"src/**/*"
+	],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts"
+  ]
+}
