@@ -12,7 +12,7 @@ const Home = (): JSX.Element => {
 
   return (
     <div className="App">
-      <Button onClick={onButton} text="Go to quiz" />
+      <Button onClick={onButton} text="퀴즈 풀러 가기" />
     </div>
   );
 };
@@ -32,16 +32,16 @@ const Home = (): JSX.Element => {
 //     font-size: 1.5em;
 //   }
 
-  // -webkit-transition: width 0.5s, height 0.5s, background-color 0.5s,
-  //   -webkit-transform 0.5s;
-  // transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
-  // &:hover {
-  //   color: #ffffff;
-  //   background-color: #646f7c;
-  //   cursor: pointer;
-  //   -webkit-transform: translateY(-0.5rem);
-  //   transform: translateY(-0.5rem);
-  // }
+// -webkit-transition: width 0.5s, height 0.5s, background-color 0.5s,
+//   -webkit-transform 0.5s;
+// transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+// &:hover {
+//   color: #ffffff;
+//   background-color: #646f7c;
+//   cursor: pointer;
+//   -webkit-transform: translateY(-0.5rem);
+//   transform: translateY(-0.5rem);
+// }
 // `;
 
 export default Home;
