@@ -19,8 +19,8 @@ const Button = styled.button`
     color: #ffffff;
     background-color: #00c896;
     cursor: pointer;
-    -webkit-transform: translateY(-0.5rem);
-    transform: translateY(-0.5rem);
+    -webkit-transform: translateY(-0.2rem);
+    transform: translateY(-0.2rem);
   }
 `;
 

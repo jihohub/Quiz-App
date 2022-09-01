@@ -12,7 +12,7 @@ const Quiz = (): JSX.Element => {
 
   return (
     <div className="App">
-      <Button onClick={onButton} text="Go to home" />
+      <Button onClick={onButton} text="홈으로 가기" />
     </div>
   );
 };
@@ -31,11 +31,11 @@ const Quiz = (): JSX.Element => {
 //   p {
 //     font-size: 1.5em;
 //   }
-  // &:hover {
-  //   color: #ffffff;
-  //   background-color: #646f7c;
-  //   cursor: pointer;
-  // }
+// &:hover {
+//   color: #ffffff;
+//   background-color: #646f7c;
+//   cursor: pointer;
+// }
 // `;
 
 export default Quiz;
