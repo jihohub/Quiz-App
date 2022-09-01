@@ -15,4 +15,3 @@ const QuestionBox = ({ question }: QuestionProps) => {
 };
 
 export default QuestionBox;
-// module.exports = QuestionBox;

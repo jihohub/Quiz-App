@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import QuestionBox from "./QuestionBox";
 import ChoiceBox from "./ChoiceBox";
+import loading from "../assets/loading.gif";
 interface QuizProps {
   question: string;
   choices: Array<number | string>;
@@ -9,18 +10,15 @@ interface QuizProps {
 }
 
 const QuizBox = ({ question, choices, answer, indexAnswer }: QuizProps) => {
-  const [selected, setSelected] = useState<boolean>(false);
-
   return (
     <div>
       <QuestionBox question={question} />
       {choices?.map((choice) => (
         <ChoiceBox key={String(choice)} choice={choice} />
       ))}
-      <p>{answer}</p>
+      <img src={loading} alt="loading" />
     </div>
   );
 };
 
 export default QuizBox;
-// module.exports = QuizBox;

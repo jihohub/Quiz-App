@@ -12,9 +12,7 @@ const Button = styled.button`
   -webkit-transition: width 0.5s, height 0.5s, background-color 0.5s,
     -webkit-transform 0.5s;
   transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
-  p {
-    font-size: 1rem;
-  }
+  
   &:hover {
     color: #ffffff;
     background-color: #00c896;
@@ -24,4 +22,8 @@ const Button = styled.button`
   }
 `;
 
-export default { Button };
+const ButtonText = styled.p`
+  font-size: 1rem;
+`;
+
+export default { Button, ButtonText };

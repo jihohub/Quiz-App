@@ -14,10 +14,9 @@ const ChoiceBox: React.FC<ChoiceProps> = ({ choice }) => {
 
   return (
     <Styled.ChoiceBox onClick={onPress} isSelected={selected}>
-      <p>{choice}</p>
+      <Styled.ChoiceText>{choice}</Styled.ChoiceText>
     </Styled.ChoiceBox>
   );
 };
 
 export default ChoiceBox;
-// module.exports = ChoiceBox;

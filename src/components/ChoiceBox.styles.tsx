@@ -12,9 +12,7 @@ const ChoiceBox = styled.div<{ isSelected: boolean }>`
   -webkit-transition: width 0.5s, height 0.5s, background-color 0.5s,
     -webkit-transform 0.5s;
   transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
-  p {
-    font-size: 1rem;
-  }
+  
   &:hover {
     color: #ffffff;
     background-color: #00c896;
@@ -24,4 +22,8 @@ const ChoiceBox = styled.div<{ isSelected: boolean }>`
   }
 `;
 
-export default { ChoiceBox };
+const ChoiceText = styled.p`
+  font-size: 1rem;
+`;
+
+export default { ChoiceBox, ChoiceText };

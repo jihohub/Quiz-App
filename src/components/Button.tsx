@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ text, onClick }) => (
   <Styled.Button onClick={onClick}>
-    <p>{text}</p>
+    <Styled.ButtonText>{text}</Styled.ButtonText>
   </Styled.Button>
 );
 
