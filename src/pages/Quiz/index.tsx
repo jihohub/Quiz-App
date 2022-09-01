@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "../../store";
+import { getQuiz, clearQuiz } from "../../slices/quizSlice";
 import styled from "styled-components";
-import useGetQuizzes from "../../hooks/useGetQuizzes";
-import useProcessQuiz from "../../hooks/useProcessQuiz";
-import { quizState } from "../../atom/quizState";
 import Button from "../../components/Button";
 import QuizBox from "../../components/QuizBox";
 
@@ -15,15 +14,21 @@ const Quiz = (): JSX.Element => {
     navigate("/");
   };
 
-  const { status, data, error, isFetching } = useGetQuizzes();
-  
+  const quiz = useSelector((state: RootState) => state.quiz.quiz);
+
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(getQuiz());
+    console.log("dispatch quiz", quiz);
+    return () => {
+      dispatch(clearQuiz());
+    };
+  }, []);
+
   return (
     <div className="App">
-      {data?.results.map((item) => (
-        <QuizBox
-          key={item.correct_answer}
-          {...item}
-        />
+      {quiz && quiz?.map((item: any) => (
+        <QuizBox key={item.answer} {...item} />
       ))}
       <Button onClick={onButton} text="홈화면으로 돌아가기" />
     </div>

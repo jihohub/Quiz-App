@@ -9,13 +9,15 @@ import QuizBox from "./QuizBox";
 
 test("loads and displays greeting", async () => {
   const question = "Which one is the biggest number?";
-  const incorrect = [5, 300, 20];
-  const correct = 88;
+  const choices = [5, 300, 20, 88];
+  const answer = 88;
+  const indexAnswer = 3
   const renderQuizPanel = render(
     <QuizBox
       question={question}
-      correct_answer={correct}
-      incorrect_answers={incorrect}
+      choices={choices}
+      answer={answer}
+      indexAnswer={indexAnswer}
     />
   );
 
