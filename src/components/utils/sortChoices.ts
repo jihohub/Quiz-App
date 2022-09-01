@@ -1,7 +1,7 @@
 export const sortChoices = (
   incorrectAnswers: Array<string | number>,
   correctAnswer: string | number
-): Array<string | number> => {
+): [Array<string | number>, string | number] => {
   const choices = incorrectAnswers.filter(() => true);
   const sorter = (a: number | string, b: number | string): any => {
     if (typeof a === "number" && typeof b === "string") {
@@ -19,7 +19,7 @@ export const sortChoices = (
   };
   choices.push(correctAnswer);
   choices.sort(sorter);
-  return choices;
+  return [choices, choices.indexOf(correctAnswer)];
 };
 
 module.exports = sortChoices;
