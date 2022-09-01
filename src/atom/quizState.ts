@@ -1,5 +1,4 @@
 import { atom } from "recoil";
-
 interface QuizState {
   question: string;
   choices: Array<number | string>;

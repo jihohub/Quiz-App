@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
 interface Quizzes {
   response_code: number;
   results: Array<{

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import Button from "../../components/Button/Button";
+import useGetQuizzes from "../../hooks/useGetQuizzes";
+import useProcessQuiz from "../../hooks/useProcessQuiz";
+import { quizState } from "../../atom/quizState";
+import Button from "../../components/Button";
+import QuizBox from "../../components/QuizBox";
 
 const Quiz = (): JSX.Element => {
   const navigate = useNavigate();
@@ -10,9 +15,17 @@ const Quiz = (): JSX.Element => {
     navigate("/");
   };
 
+  const { status, data, error, isFetching } = useGetQuizzes();
+  
   return (
     <div className="App">
-      <Button onClick={onButton} text="홈으로 가기" />
+      {data?.results.map((item) => (
+        <QuizBox
+          key={item.correct_answer}
+          {...item}
+        />
+      ))}
+      <Button onClick={onButton} text="홈화면으로 돌아가기" />
     </div>
   );
 };
