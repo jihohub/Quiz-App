@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "사전과제",
   "dependencies": {
+    "@tanstack/react-query": "^4.2.3",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
@@ -12,6 +13,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "recoil": "^0.7.5",
     "styled-components": "^5.3.5"
   },
   "scripts": {
