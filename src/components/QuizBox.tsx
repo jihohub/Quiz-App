@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "./Button";
-import { sortChoices } from "../utils/sortChoices";
+import React, { useState } from "react";
+import QuestionBox from "./QuestionBox";
+import ChoiceBox from "./ChoiceBox";
 interface QuizProps {
   question: string;
   choices: Array<number | string>;
@@ -8,15 +8,14 @@ interface QuizProps {
   indexAnswer: number;
 }
 
-
 const QuizBox = ({ question, choices, answer, indexAnswer }: QuizProps) => {
-  // const [choices, index] = sortChoices(incorrect_answers, correct_answer);
+  const [selected, setSelected] = useState<boolean>(false);
 
   return (
     <div>
-      <p>{question}</p>
+      <QuestionBox question={question} />
       {choices?.map((choice) => (
-        <Button key={String(choice)} text={choice} />
+        <ChoiceBox key={String(choice)} choice={choice} />
       ))}
       <p>{answer}</p>
     </div>
@@ -24,3 +23,4 @@ const QuizBox = ({ question, choices, answer, indexAnswer }: QuizProps) => {
 };
 
 export default QuizBox;
+// module.exports = QuizBox;

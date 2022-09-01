@@ -7,12 +7,12 @@ import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import QuizBox from "./QuizBox";
 
-test("loads and displays greeting", async () => {
+test("퀴즈 박스가 문제와 보기를 보여주는지", async () => {
   const question = "Which one is the biggest number?";
   const choices = [5, 300, 20, 88];
   const answer = 88;
   const indexAnswer = 3
-  const renderQuizPanel = render(
+  const renderQuizBox = render(
     <QuizBox
       question={question}
       choices={choices}
@@ -21,7 +21,7 @@ test("loads and displays greeting", async () => {
     />
   );
 
-  const { container } = renderQuizPanel;
+  const { container } = renderQuizBox;
   expect(container).toHaveTextContent(question);
   expect(container).toHaveTextContent("5");
   expect(container).toHaveTextContent("300");
