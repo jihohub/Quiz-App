@@ -1,4 +1,4 @@
-export const sortChoices = require("./sortChoices");
+const sortChoices = require("./sortChoices");
 
 test("add 200 to [1000, 4, 30]", () => {
   expect(sortChoices([1000, 4, 30], 200)).toStrictEqual([4, 30, 200, 1000]);
@@ -39,3 +39,5 @@ test("add 200 to [one thousand, four, thirty]", () => {
     "thirty",
   ]);
 });
+
+export { };
