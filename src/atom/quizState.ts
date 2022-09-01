@@ -1,6 +1,14 @@
 import { atom } from "recoil";
 
-export const quizState = atom<object>({
+interface QuizState {
+  question: string;
+  choices: Array<number | string>;
+  answer: number | string;
+  indexAnswer: number;
+  indexChosen: number | null;
+}
+
+export const quizState = atom<Array<QuizState>>({
   key: "quizState",
-  default: {},
+  default: [],
 });
