@@ -9,8 +9,9 @@ import Styled from "./index.styles";
 import QuestionContainer from "../QuestionContainer";
 import ChoiceContainer from "../ChoiceContainer";
 import Button from "../Button";
-import Toast from "../Toast";
 import unEscape from "../../utils/unEscape";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface QuizProps {
   id: number;
@@ -68,18 +69,25 @@ const QuizContainer = ({ id, question, choices, answer, indexAnswer }: QuizProps
 
   // 유저가 문제에서 보기를 선택해야 다음 항목, 결과 보기 버튼을 활성화
   const [disabled, setDisabled] = useState<boolean>(true);
-  // 문제 정답 여부를 알려주는 토스트 팝업창을 활성화하는 변수
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const notify = () =>
+    toast("다시 한 번 생각해보세요", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 1000,
+    });
 
   useEffect(() => {
     setDisabled(!selected.includes(true));
-    setIsActive(indexAnswer !== selected.indexOf(true));
+    if (indexAnswer !== selected.indexOf(true) && selected.includes(true)) {
+      notify();
+    };
   }, [selected]);
+
+  
 
   return (
     <Styled.Wrapper>
-      <Toast isActive={!disabled && isActive} setIsActive={setIsActive} />
       <QuestionContainer id={id} question={unEscape(question)} page="quiz" />
+      <ToastContainer />
       {choices.map((choice, index) => (
         <ChoiceContainer
           key={String(choice)}
@@ -97,11 +105,7 @@ const QuizContainer = ({ id, question, choices, answer, indexAnswer }: QuizProps
           isDisabled={disabled}
         />
       ) : (
-        <Button
-          onClick={onFinish}
-          text="결과 보기"
-          isDisabled={disabled}
-        />
+        <Button onClick={onFinish} text="결과 보기" isDisabled={disabled} />
       )}
     </Styled.Wrapper>
   );
