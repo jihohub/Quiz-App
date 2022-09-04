@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import processQuiz from "../utils/processQuiz";
-import { Action } from "history";
 
 export interface QuizState {
   quiz: Array<{
@@ -26,14 +25,11 @@ const initialState: QuizState = {
 };
 
 export const getQuiz = createAsyncThunk("GET_QUIZ", async () => {
-  try {
-    const response = await axios.get(
-      "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple"
-    );
-    return response.data;
-  } catch (error) {
-    return error;
-  }
+  const response = await axios.get(
+    "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple"
+  );
+
+  return response.data;
 });
 
 export const quizSlice = createSlice({

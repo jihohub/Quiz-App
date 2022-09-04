@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Styled from "./index.styles";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../store";
@@ -10,12 +11,17 @@ import ProgressBar from "../../components/ProgressBar";
 import ProgressText from "../../components/ProgressText";
 
 const Quiz = (): JSX.Element => {
+  const navigate = useNavigate();
   const [quiz, loading, error, step] = useGetQuiz();
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(setStart());
   }, []);
+
+  if (error === "rejected") {
+    navigate("/error");
+  }
 
   return (
     <Styled.Wrapper>
