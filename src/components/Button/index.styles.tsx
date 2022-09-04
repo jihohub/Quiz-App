@@ -18,17 +18,15 @@ const Button = styled.button<{ disabled?: boolean }>`
   ${(props) =>
     props.disabled
       ? css`
-          border: 1px solid #9c9c9c;
-          color: #9c9c9c;
+          color: ${(props) => props.theme.colors.disabled};
+          border: 1px solid ${(props) => props.theme.borderColors.disabled};
         `
       : css`
-          border: 1px solid #b7f6eb;
-          background-color: #b7f6eb;
-          color: #000000;
+          background-color: ${(props) => props.theme.colors.primary};
+          border: 1px solid ${(props) => props.theme.borderColors.primary};
           &:hover {
-            background-color: #ffffff;
-            border: 1px solid #4dd1c4;
-            color: #4dd1c4;
+            background-color: ${(props) => props.theme.colors.secondary};
+            border: 1px solid ${(props) => props.theme.borderColors.primary};
             cursor: pointer;
             -webkit-transform: translateY(-0.2rem);
             transform: translateY(-0.2rem);
