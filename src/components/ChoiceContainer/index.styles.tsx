@@ -9,7 +9,6 @@ interface ChoiceProps {
 }
 
 const ChoiceContainer = styled.div<ChoiceProps>`
-  border: 1px solid #c6f6d5;
   border-radius: 8px;
   height: 5rem;
   line-height: 5rem;
@@ -25,14 +24,14 @@ const ChoiceContainer = styled.div<ChoiceProps>`
   }
 
   ${(props) =>
-    (props.page === "quiz" &&
+    props.page === "quiz" &&
     props.isSelected &&
-    props.isCorrect) &&
+    props.isCorrect &&
     css`
-      background-color: #c6f6d5;
-      border: 1px solid #00c896;
+      background-color: ${(props) => props.theme.colors.correct};
+      border: 2px solid ${(props) => props.theme.borderColors.correct};
       &:hover {
-        background-color: #c6f6d5;
+        background-color: ${(props) => props.theme.colors.correct};
         cursor: pointer;
         -webkit-transform: translateY(-0.2rem);
         transform: translateY(-0.2rem);
@@ -40,14 +39,14 @@ const ChoiceContainer = styled.div<ChoiceProps>`
     `}
 
   ${(props) =>
-    (props.page === "quiz" &&
+    props.page === "quiz" &&
     props.isSelected &&
-    !props.isCorrect) &&
+    !props.isCorrect &&
     css`
-      background-color: #fc8383;
-      border: 1px solid #fc8383;
+      background-color: ${(props) => props.theme.colors.wrong};
+      border: 2px solid ${(props) => props.theme.borderColors.wrong};
       &:hover {
-        background-color: #fc8383;
+        background-color: ${(props) => props.theme.colors.wrong};
         cursor: pointer;
         -webkit-transform: translateY(-0.2rem);
         transform: translateY(-0.2rem);
@@ -59,9 +58,9 @@ const ChoiceContainer = styled.div<ChoiceProps>`
     !props.isSelected &&
     css`
       background-color: transparent;
-      border: 1px solid #00c896;
+      border: 2px solid ${(props) => props.theme.colors.primary};
       &:hover {
-        background-color: #c6f6d5;
+        background-color: ${(props) => props.theme.colors.primary};
         cursor: pointer;
         -webkit-transform: translateY(-0.2rem);
         transform: translateY(-0.2rem);
@@ -72,16 +71,16 @@ const ChoiceContainer = styled.div<ChoiceProps>`
     props.page === "result" &&
     props.isCorrect &&
     css`
-      background-color: #c6f6d5;
-      border: 1px solid #00c896;
+      background-color: ${(props) => props.theme.colors.correct};
+      border: 2px solid ${(props) => props.theme.borderColors.correct};
     `}
 
   ${(props) =>
     props.page === "result" &&
     props.isWrong &&
     css`
-      background-color: #feb4b4;
-      border: 1px solid #fc8383;
+      background-color: ${(props) => props.theme.colors.wrong};
+      border: 2px solid ${(props) => props.theme.borderColors.wrong};
     `}
 
   ${(props) =>
@@ -89,7 +88,7 @@ const ChoiceContainer = styled.div<ChoiceProps>`
     props.isNothing &&
     css`
       background-color: transparent;
-      border: 1px solid #00c896;
+      border: 2px solid ${(props) => props.theme.borderColors.primary};
     `}
 `;
 

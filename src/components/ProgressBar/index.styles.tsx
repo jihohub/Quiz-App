@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 const Progress = styled.div<{ width: string }>`
   margin: 0;
-  background-color: #00c896;
+  background-color: ${(props) => props.theme.colors.primary};
   height: 100%;
   width: ${(props) => props.width};
   border-radius: 20px;

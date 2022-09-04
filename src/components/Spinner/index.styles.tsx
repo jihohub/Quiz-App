@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 const Spinner = styled.div`
   height: 100px;
   width: 100px;
-  border: 1px solid #00c896;
+  border: 2px solid ${(props) => props.theme.borderColors.loading};
   border-radius: 50%;
   border-top: none;
   border-right: none;
