@@ -1,41 +1,38 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import Button from "../../components/Button/Button";
+import React, { useEffect } from "react";
+import Styled from "./index.styles";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../store";
+import { setStart } from "../../slices/timeSlice";
+import QuizContainer from "../../components/QuizContainer";
+import Spinner from "../../components/Spinner";
+import useGetQuiz from "../../hooks/useGetQuiz";
+import ProgressBar from "../../components/ProgressBar";
+import ProgressText from "../../components/ProgressText";
 
 const Quiz = (): JSX.Element => {
-  const navigate = useNavigate();
-  const onButton = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    event.preventDefault();
-    navigate("/");
-  };
+  const [quiz, loading, error, step] = useGetQuiz();
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(setStart());
+  }, []);
 
   return (
-    <div className="App">
-      <Button onClick={onButton} text="홈으로 가기" />
-    </div>
+    <Styled.Wrapper>
+      {loading && <Spinner />}
+      {quiz && !loading && (
+        <>
+          <ProgressBar step={step} />
+          <ProgressText step={step} />
+        </>
+      )}
+      {quiz &&
+        !loading &&
+        quiz
+          ?.filter((item: any) => item.id === step)
+          .map((item: any) => <QuizContainer key={item.answer} {...item} />)}
+    </Styled.Wrapper>
   );
 };
-
-// const Button = styled.button`
-//   position: absolute;
-//   left: 60px;
-//   top: 400px;
-//   width: 300px;
-//   height: 150px;
-//   line-height: 30px;
-//   color: #ffffff;
-//   background-color: #00b8ff;
-//   border-radius: 6px;
-//   border: 1px;
-//   p {
-//     font-size: 1.5em;
-//   }
-// &:hover {
-//   color: #ffffff;
-//   background-color: #646f7c;
-//   cursor: pointer;
-// }
-// `;
 
 export default Quiz;

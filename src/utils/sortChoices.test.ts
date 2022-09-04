@@ -1,4 +1,4 @@
-const sortChoices = require("./sortChoices");
+import sortChoices from "./sortChoices";
 
 test("add 200 to [1000, 4, 30]", () => {
   expect(sortChoices([1000, 4, 30], 200)).toStrictEqual([
