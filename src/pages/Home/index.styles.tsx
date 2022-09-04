@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   background-image: url(${mainlogo});
   background-position: center;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 768px) {
+    background-size: 30%;
+  }
 `;
 
 export default { Wrapper };

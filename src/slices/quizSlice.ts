@@ -25,12 +25,10 @@ const initialState: QuizState = {
 };
 
 export const getQuiz = createAsyncThunk("GET_QUIZ", async () => {
-  // const response = await axios.get(
-  //   "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple"
-  // );
   const response = await axios.get(
-    "https://opentdhethteltiple"
+    "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple"
   );
+
   return response.data;
 });
 
