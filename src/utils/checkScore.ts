@@ -12,7 +12,7 @@ interface ScoreProps {
 };
 
 const checkScore = ({ quiz, score }: ScoreProps): string => {
-  const result = `${quiz.length}문제 중 정답은 ${score}개, 오답은 ${quiz.length - score}개입니다.`;
+  const result = `${quiz.length}문제 중 ${score}문제를 맞히셨어요! 틀린 ${quiz.length - score}문제는 무엇이 정답이었는지 아래 결과 페이지에서 확인해보아요.`;
 
   return result;
 };

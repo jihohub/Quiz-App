@@ -11,9 +11,10 @@ interface ChoiceProps {
 const ChoiceContainer = styled.div<ChoiceProps>`
   border-radius: 8px;
   height: 5rem;
-  line-height: 5rem;
+  display: flex;
   max-width: 50%;
-  margin: 1% auto;
+  margin: 0 auto;
+  margin-bottom: 3%;
   padding: 0.25em 1em;
   -webkit-transition: width 0.5s, height 0.5s, background-color 0.5s,
     -webkit-transform 0.5s;

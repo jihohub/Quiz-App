@@ -3,10 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   height: 100%;
   max-width: 50%;
-  margin: 3% auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 5% auto;
 
   @media screen and (max-width: 768px) {
     max-width: 80%;
@@ -14,10 +11,10 @@ const Wrapper = styled.div`
 `;
 
 const ResultText = styled.p`
-  font-size: 1rem;
+  font-size: 1.5rem;
 
   @media screen and (max-width: 768px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 `;
 

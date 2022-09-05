@@ -1,6 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../store";
 import Styled from "./index.styles";
 import QuestionContainer from "../QuestionContainer";
 import ChoiceContainer from "../ChoiceContainer";

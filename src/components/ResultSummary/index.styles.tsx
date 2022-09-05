@@ -4,9 +4,7 @@ const Wrapper = styled.div`
   height: 100%;
   max-width: 50%;
   margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin-top: 5%;
 
   @media screen and (max-width: 768px) {
     max-width: 80%;
