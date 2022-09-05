@@ -46,8 +46,7 @@ const QuizContainer = ({ id, question, choices, answer, indexAnswer }: QuizProps
   // 유저가 다음 문항으로 이동할 시에 실행되는 onClick 이벤트
   // 유저가 방금 풀었던 문제에서 선택한 보기를 quiz 전역상태에 업데이트하고
   // 화면에 렌더링할 문항을 결정하는 step 전역상태를 업데이트함
-  const onNext = (
-    event: React.MouseEvent<HTMLButtonElement>): void => {
+  const onNext = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
     dispatch(setChosen([step, selected.indexOf(true)]));
 
@@ -57,7 +56,9 @@ const QuizContainer = ({ id, question, choices, answer, indexAnswer }: QuizProps
   };
 
   // 유저가 모든 문제를 풀고 결과 보기 페이지로 갈 때
-  // store에 저장된 step을 0으로 초기화
+  // 마지막 문제에서 선택한 답안 업데이트
+  // 유저가 문제풀이를 종료한 순간의 시각 업데이트
+  // 정답 리스트와 유저가 선택한 보기를 비교하여 점수 계산
   const onFinish = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
     dispatch(setChosen([step, selected.indexOf(true)]));
@@ -68,6 +69,7 @@ const QuizContainer = ({ id, question, choices, answer, indexAnswer }: QuizProps
   };
 
   // 유저가 문제에서 보기를 선택해야 다음 항목, 결과 보기 버튼을 활성화
+  // 오답을 선택했을 시 "다시 한 번 생각해보세요" 토스트를 띄워 정답 선택 유도
   const [disabled, setDisabled] = useState<boolean>(true);
   const notify = () =>
     toast("다시 한 번 생각해보세요", {
@@ -79,10 +81,8 @@ const QuizContainer = ({ id, question, choices, answer, indexAnswer }: QuizProps
     setDisabled(!selected.includes(true));
     if (indexAnswer !== selected.indexOf(true) && selected.includes(true)) {
       notify();
-    };
+    }
   }, [selected]);
-
-  
 
   return (
     <Styled.Wrapper>
