@@ -2,9 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  name: "webpack-setting",
   mode: "production",
-  target: "node",
+  target: "web",
   entry: {
     app: path.join(__dirname, "src", "index.tsx"),
   },
@@ -18,7 +17,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "public/index.html",
+      template: "./public/index.html",
     }),
   ],
   module: {
@@ -39,7 +38,6 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
-
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         type: "asset/resource",
