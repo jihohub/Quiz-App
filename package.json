@@ -1,7 +1,7 @@
 {
   "name": "quiz-app",
   "version": "0.1.0",
-  "description": "quiz-app",
+  "description": "퀴즈앱",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@types/jest": "^29.0.0",
