@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   name: "webpack-setting",
-  mode: "development",
+  mode: "production",
   target: "node",
   entry: {
     app: path.join(__dirname, "src", "index.tsx"),
@@ -35,6 +35,11 @@ module.exports = {
           ],
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         type: "asset/resource",
