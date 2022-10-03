@@ -1,7 +1,7 @@
 {
-  "name": "classting",
+  "name": "quiz-app",
   "version": "0.1.0",
-  "description": "사전과제",
+  "description": "quiz-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@types/jest": "^29.0.0",
@@ -13,7 +13,6 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1",
     "react-toastify": "^9.0.8",
     "styled-components": "^5.3.5"
   },
@@ -38,6 +37,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest-styled-components": "^7.1.1",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.8.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.74.0",
