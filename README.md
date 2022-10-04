@@ -1,6 +1,6 @@
 # 퀴즈앱
 ### 서비스 URL
-https://main.d2nydvk4y0i8ij.amplifyapp.com
+https://main.d2kwn7j9yzkic3.amplifyapp.com/
 ### 서비스 소개
 스포츠 관련 간단한 퀴즈를 제공하는 서비스입니다.
 ### 서비스 기능 설명
